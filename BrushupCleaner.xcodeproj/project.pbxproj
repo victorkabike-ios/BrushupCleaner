@@ -7,6 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF14B59B2A595B8100987865 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF14B59A2A595B8100987865 /* ConfettiSwiftUI */; };
+		FF14B59E2A59602700987865 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = FF14B59D2A59602700987865 /* RevenueCat */; };
+		FF14B5A02A5960B000987865 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF14B59F2A5960AF00987865 /* EventKit.framework */; };
+		FF14B5A22A599D9200987865 /* SubscriptionTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF14B5A12A599D9200987865 /* SubscriptionTermsView.swift */; };
+		FF14B5A42A59A9AB00987865 /* TermsOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF14B5A32A59A9AB00987865 /* TermsOfUseView.swift */; };
+		FF14B5A72A59BC5800987865 /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF14B5A62A59BC5800987865 /* ScrollKit */; };
+		FF69FEF22A59396900DAFE55 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEF12A59396900DAFE55 /* OnboardingView2.swift */; };
+		FF69FEF42A59399C00DAFE55 /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEF32A59399C00DAFE55 /* OnboardingView3.swift */; };
+		FF69FEF72A5939EC00DAFE55 /* OnboardingView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEF62A5939EC00DAFE55 /* OnboardingView4.swift */; };
+		FF69FEFA2A593A2900DAFE55 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEF92A593A2900DAFE55 /* PhotoView.swift */; };
+		FF69FEFC2A593A8C00DAFE55 /* SimilarPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEFB2A593A8C00DAFE55 /* SimilarPhotoView.swift */; };
+		FF69FEFF2A593B3000DAFE55 /* LargeVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEFE2A593B3000DAFE55 /* LargeVideoView.swift */; };
+		FF69FF012A593B5B00DAFE55 /* VideoCompressionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF002A593B5B00DAFE55 /* VideoCompressionView.swift */; };
+		FF69FF032A593BA300DAFE55 /* VideoCompressionResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF022A593BA300DAFE55 /* VideoCompressionResultsView.swift */; };
+		FF69FF052A593BD400DAFE55 /* VideoCompressCongratsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF042A593BD400DAFE55 /* VideoCompressCongratsView.swift */; };
+		FF69FF072A593BFE00DAFE55 /* VideoQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF062A593BFE00DAFE55 /* VideoQuality.swift */; };
+		FF69FF0A2A593C5500DAFE55 /* DuplicateContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF092A593C5500DAFE55 /* DuplicateContacts.swift */; };
+		FF69FF0C2A593CA600DAFE55 /* SmartCleanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF0B2A593CA600DAFE55 /* SmartCleanView.swift */; };
+		FF69FF0E2A593D1000DAFE55 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF0D2A593D1000DAFE55 /* SettingView.swift */; };
+		FF69FF102A593D4400DAFE55 /* StorageinfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF0F2A593D4400DAFE55 /* StorageinfoView.swift */; };
+		FF69FF122A593D8500DAFE55 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF112A593D8500DAFE55 /* UserView.swift */; };
+		FF69FF162A593DD200DAFE55 /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF152A593DD200DAFE55 /* PaywallView.swift */; };
+		FF69FF182A593E8E00DAFE55 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF172A593E8E00DAFE55 /* CircularProgressView.swift */; };
+		FF69FF1B2A593F2B00DAFE55 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF1A2A593F2B00DAFE55 /* FileManager.swift */; };
+		FF69FF1D2A593F6000DAFE55 /* AuthorizationUtitilies.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF1C2A593F6000DAFE55 /* AuthorizationUtitilies.swift */; };
+		FF69FF1F2A593F8C00DAFE55 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF1E2A593F8C00DAFE55 /* Constants.swift */; };
+		FF69FF212A593FB300DAFE55 /*  Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF202A593FB300DAFE55 /*  Extensions.swift */; };
+		FF69FF232A593FE200DAFE55 /* PhotoUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF222A593FE200DAFE55 /* PhotoUtilities.swift */; };
+		FF69FF262A59402300DAFE55 /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF252A59402300DAFE55 /* PhotoViewModel.swift */; };
+		FF69FF282A59404700DAFE55 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF272A59404700DAFE55 /* VideoViewModel.swift */; };
+		FF69FF2A2A59406D00DAFE55 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF292A59406D00DAFE55 /* ContactsViewModel.swift */; };
+		FF69FF2C2A59408F00DAFE55 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF2B2A59408F00DAFE55 /* UserViewModel.swift */; };
+		FF69FF2F2A5940E700DAFE55 /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF2E2A5940E700DAFE55 /* PhotoModel.swift */; };
+		FF69FF312A59410400DAFE55 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF302A59410400DAFE55 /* Video.swift */; };
+		FF69FF332A59415E00DAFE55 /* PurchasesDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF322A59415E00DAFE55 /* PurchasesDelegateHandler.swift */; };
+		FF69FF392A59420100DAFE55 /* FYVideoCompressor in Frameworks */ = {isa = PBXBuildFile; productRef = FF69FF382A59420100DAFE55 /* FYVideoCompressor */; };
+		FF69FF432A5942EB00DAFE55 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69FF422A5942EB00DAFE55 /* StoreKit.framework */; };
+		FF69FF462A59433000DAFE55 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69FF452A59433000DAFE55 /* Photos.framework */; };
+		FF69FF4A2A59435200DAFE55 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69FF492A59435200DAFE55 /* CoreVideo.framework */; };
+		FF69FF4C2A59436600DAFE55 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69FF4B2A59436600DAFE55 /* Contacts.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		FF69FF502A59438700DAFE55 /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF69FF4F2A59438600DAFE55 /* Combine.framework */; };
+		FF69FF522A59448300DAFE55 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FF69FF512A59448300DAFE55 /* Resnet50.mlmodel */; };
 		FFD2E4862A59387300C96CF2 /* BrushupCleanerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2E4852A59387300C96CF2 /* BrushupCleanerApp.swift */; };
 		FFD2E4882A59387300C96CF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2E4872A59387300C96CF2 /* ContentView.swift */; };
 		FFD2E48A2A59387500C96CF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFD2E4892A59387500C96CF2 /* Assets.xcassets */; };
@@ -14,6 +56,7 @@
 		FFD2E4972A59387600C96CF2 /* BrushupCleanerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2E4962A59387600C96CF2 /* BrushupCleanerTests.swift */; };
 		FFD2E4A12A59387600C96CF2 /* BrushupCleanerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2E4A02A59387600C96CF2 /* BrushupCleanerUITests.swift */; };
 		FFD2E4A32A59387600C96CF2 /* BrushupCleanerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2E4A22A59387600C96CF2 /* BrushupCleanerUITestsLaunchTests.swift */; };
+		FFD2E4B12A5938E200C96CF2 /* OnboardingView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD2E4B02A5938E200C96CF2 /* OnboardingView1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +77,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF14B59F2A5960AF00987865 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		FF14B5A12A599D9200987865 /* SubscriptionTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTermsView.swift; sourceTree = "<group>"; };
+		FF14B5A32A59A9AB00987865 /* TermsOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseView.swift; sourceTree = "<group>"; };
+		FF69FEF12A59396900DAFE55 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
+		FF69FEF32A59399C00DAFE55 /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
+		FF69FEF62A5939EC00DAFE55 /* OnboardingView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView4.swift; sourceTree = "<group>"; };
+		FF69FEF92A593A2900DAFE55 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		FF69FEFB2A593A8C00DAFE55 /* SimilarPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarPhotoView.swift; sourceTree = "<group>"; };
+		FF69FEFE2A593B3000DAFE55 /* LargeVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeVideoView.swift; sourceTree = "<group>"; };
+		FF69FF002A593B5B00DAFE55 /* VideoCompressionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompressionView.swift; sourceTree = "<group>"; };
+		FF69FF022A593BA300DAFE55 /* VideoCompressionResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompressionResultsView.swift; sourceTree = "<group>"; };
+		FF69FF042A593BD400DAFE55 /* VideoCompressCongratsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCompressCongratsView.swift; sourceTree = "<group>"; };
+		FF69FF062A593BFE00DAFE55 /* VideoQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoQuality.swift; sourceTree = "<group>"; };
+		FF69FF092A593C5500DAFE55 /* DuplicateContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateContacts.swift; sourceTree = "<group>"; };
+		FF69FF0B2A593CA600DAFE55 /* SmartCleanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCleanView.swift; sourceTree = "<group>"; };
+		FF69FF0D2A593D1000DAFE55 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		FF69FF0F2A593D4400DAFE55 /* StorageinfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageinfoView.swift; sourceTree = "<group>"; };
+		FF69FF112A593D8500DAFE55 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		FF69FF152A593DD200DAFE55 /* PaywallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallView.swift; sourceTree = "<group>"; };
+		FF69FF172A593E8E00DAFE55 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		FF69FF1A2A593F2B00DAFE55 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		FF69FF1C2A593F6000DAFE55 /* AuthorizationUtitilies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationUtitilies.swift; sourceTree = "<group>"; };
+		FF69FF1E2A593F8C00DAFE55 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FF69FF202A593FB300DAFE55 /*  Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " Extensions.swift"; sourceTree = "<group>"; };
+		FF69FF222A593FE200DAFE55 /* PhotoUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUtilities.swift; sourceTree = "<group>"; };
+		FF69FF252A59402300DAFE55 /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		FF69FF272A59404700DAFE55 /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
+		FF69FF292A59406D00DAFE55 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
+		FF69FF2B2A59408F00DAFE55 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		FF69FF2E2A5940E700DAFE55 /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
+		FF69FF302A59410400DAFE55 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		FF69FF322A59415E00DAFE55 /* PurchasesDelegateHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesDelegateHandler.swift; sourceTree = "<group>"; };
+		FF69FF422A5942EB00DAFE55 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FF69FF442A59431300DAFE55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FF69FF452A59433000DAFE55 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		FF69FF472A59433F00DAFE55 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		FF69FF492A59435200DAFE55 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		FF69FF4B2A59436600DAFE55 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		FF69FF4D2A59437300DAFE55 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
+		FF69FF4F2A59438600DAFE55 /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
+		FF69FF512A59448300DAFE55 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Resnet50.mlmodel; path = ../../../../../Downloads/Resnet50.mlmodel; sourceTree = "<group>"; };
 		FFD2E4822A59387300C96CF2 /* BrushupCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrushupCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD2E4852A59387300C96CF2 /* BrushupCleanerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushupCleanerApp.swift; sourceTree = "<group>"; };
 		FFD2E4872A59387300C96CF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +128,7 @@
 		FFD2E49C2A59387600C96CF2 /* BrushupCleanerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrushupCleanerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD2E4A02A59387600C96CF2 /* BrushupCleanerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushupCleanerUITests.swift; sourceTree = "<group>"; };
 		FFD2E4A22A59387600C96CF2 /* BrushupCleanerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushupCleanerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FFD2E4B02A5938E200C96CF2 /* OnboardingView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +136,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF14B59B2A595B8100987865 /* ConfettiSwiftUI in Frameworks */,
+				FF14B5A02A5960B000987865 /* EventKit.framework in Frameworks */,
+				FF69FF4C2A59436600DAFE55 /* Contacts.framework in Frameworks */,
+				FF69FF432A5942EB00DAFE55 /* StoreKit.framework in Frameworks */,
+				FF14B5A72A59BC5800987865 /* ScrollKit in Frameworks */,
+				FF69FF4A2A59435200DAFE55 /* CoreVideo.framework in Frameworks */,
+				FF14B59E2A59602700987865 /* RevenueCat in Frameworks */,
+				FF69FF462A59433000DAFE55 /* Photos.framework in Frameworks */,
+				FF69FF392A59420100DAFE55 /* FYVideoCompressor in Frameworks */,
+				FF69FF502A59438700DAFE55 /* Combine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +166,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF69FEF52A5939C600DAFE55 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FEF32A59399C00DAFE55 /* OnboardingView3.swift */,
+				FF69FEF62A5939EC00DAFE55 /* OnboardingView4.swift */,
+				FF69FEF12A59396900DAFE55 /* OnboardingView2.swift */,
+				FFD2E4B02A5938E200C96CF2 /* OnboardingView1.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		FF69FEF82A593A1000DAFE55 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FEF92A593A2900DAFE55 /* PhotoView.swift */,
+				FF69FEFB2A593A8C00DAFE55 /* SimilarPhotoView.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		FF69FEFD2A593AFE00DAFE55 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FEFE2A593B3000DAFE55 /* LargeVideoView.swift */,
+				FF69FF002A593B5B00DAFE55 /* VideoCompressionView.swift */,
+				FF69FF022A593BA300DAFE55 /* VideoCompressionResultsView.swift */,
+				FF69FF042A593BD400DAFE55 /* VideoCompressCongratsView.swift */,
+				FF69FF062A593BFE00DAFE55 /* VideoQuality.swift */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		FF69FF082A593C3E00DAFE55 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FF092A593C5500DAFE55 /* DuplicateContacts.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		FF69FF132A593D9C00DAFE55 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FF112A593D8500DAFE55 /* UserView.swift */,
+				FF69FF0D2A593D1000DAFE55 /* SettingView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		FF69FF142A593DBC00DAFE55 /* Premuim */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FF152A593DD200DAFE55 /* PaywallView.swift */,
+				FF14B5A32A59A9AB00987865 /* TermsOfUseView.swift */,
+				FF14B5A12A599D9200987865 /* SubscriptionTermsView.swift */,
+			);
+			path = Premuim;
+			sourceTree = "<group>";
+		};
+		FF69FF192A593ED000DAFE55 /* Utitilies */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FF512A59448300DAFE55 /* Resnet50.mlmodel */,
+				FF69FF1A2A593F2B00DAFE55 /* FileManager.swift */,
+				FF69FF1C2A593F6000DAFE55 /* AuthorizationUtitilies.swift */,
+				FF69FF1E2A593F8C00DAFE55 /* Constants.swift */,
+				FF69FF202A593FB300DAFE55 /*  Extensions.swift */,
+				FF69FF222A593FE200DAFE55 /* PhotoUtilities.swift */,
+				FF69FF322A59415E00DAFE55 /* PurchasesDelegateHandler.swift */,
+			);
+			path = Utitilies;
+			sourceTree = "<group>";
+		};
+		FF69FF242A59400E00DAFE55 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FF252A59402300DAFE55 /* PhotoViewModel.swift */,
+				FF69FF272A59404700DAFE55 /* VideoViewModel.swift */,
+				FF69FF292A59406D00DAFE55 /* ContactsViewModel.swift */,
+				FF69FF2B2A59408F00DAFE55 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FF69FF2D2A5940D700DAFE55 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF69FF2E2A5940E700DAFE55 /* PhotoModel.swift */,
+				FF69FF302A59410400DAFE55 /* Video.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF69FF412A5942EB00DAFE55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF14B59F2A5960AF00987865 /* EventKit.framework */,
+				FF69FF4F2A59438600DAFE55 /* Combine.framework */,
+				FF69FF4D2A59437300DAFE55 /* ContactsUI.framework */,
+				FF69FF4B2A59436600DAFE55 /* Contacts.framework */,
+				FF69FF492A59435200DAFE55 /* CoreVideo.framework */,
+				FF69FF472A59433F00DAFE55 /* PhotosUI.framework */,
+				FF69FF452A59433000DAFE55 /* Photos.framework */,
+				FF69FF422A5942EB00DAFE55 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FFD2E4792A59387300C96CF2 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +281,7 @@
 				FFD2E4952A59387600C96CF2 /* BrushupCleanerTests */,
 				FFD2E49F2A59387600C96CF2 /* BrushupCleanerUITests */,
 				FFD2E4832A59387300C96CF2 /* Products */,
+				FF69FF412A5942EB00DAFE55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,8 +298,12 @@
 		FFD2E4842A59387300C96CF2 /* BrushupCleaner */ = {
 			isa = PBXGroup;
 			children = (
+				FF69FF442A59431300DAFE55 /* Info.plist */,
+				FF69FF2D2A5940D700DAFE55 /* Model */,
+				FF69FF242A59400E00DAFE55 /* ViewModel */,
 				FFD2E4852A59387300C96CF2 /* BrushupCleanerApp.swift */,
-				FFD2E4872A59387300C96CF2 /* ContentView.swift */,
+				FF69FF192A593ED000DAFE55 /* Utitilies */,
+				FFD2E4AF2A59388400C96CF2 /* View */,
 				FFD2E4892A59387500C96CF2 /* Assets.xcassets */,
 				FFD2E48B2A59387500C96CF2 /* Preview Content */,
 			);
@@ -127,6 +335,23 @@
 			path = BrushupCleanerUITests;
 			sourceTree = "<group>";
 		};
+		FFD2E4AF2A59388400C96CF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FFD2E4872A59387300C96CF2 /* ContentView.swift */,
+				FF69FF0B2A593CA600DAFE55 /* SmartCleanView.swift */,
+				FF69FF0F2A593D4400DAFE55 /* StorageinfoView.swift */,
+				FF69FF142A593DBC00DAFE55 /* Premuim */,
+				FF69FF132A593D9C00DAFE55 /* User */,
+				FF69FF082A593C3E00DAFE55 /* Contacts */,
+				FF69FEFD2A593AFE00DAFE55 /* Video */,
+				FF69FEF82A593A1000DAFE55 /* Photo */,
+				FF69FEF52A5939C600DAFE55 /* Onboarding */,
+				FF69FF172A593E8E00DAFE55 /* CircularProgressView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +368,12 @@
 			dependencies = (
 			);
 			name = BrushupCleaner;
+			packageProductDependencies = (
+				FF69FF382A59420100DAFE55 /* FYVideoCompressor */,
+				FF14B59A2A595B8100987865 /* ConfettiSwiftUI */,
+				FF14B59D2A59602700987865 /* RevenueCat */,
+				FF14B5A62A59BC5800987865 /* ScrollKit */,
+			);
 			productName = BrushupCleaner;
 			productReference = FFD2E4822A59387300C96CF2 /* BrushupCleaner.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +446,12 @@
 				Base,
 			);
 			mainGroup = FFD2E4792A59387300C96CF2;
+			packageReferences = (
+				FF69FF372A59420100DAFE55 /* XCRemoteSwiftPackageReference "FYVideoCompressor" */,
+				FF14B5992A595B8100987865 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				FF14B59C2A59602700987865 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				FF14B5A52A59BC5800987865 /* XCRemoteSwiftPackageReference "ScrollKit" */,
+			);
 			productRefGroup = FFD2E4832A59387300C96CF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +494,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF69FF332A59415E00DAFE55 /* PurchasesDelegateHandler.swift in Sources */,
+				FF69FF522A59448300DAFE55 /* Resnet50.mlmodel in Sources */,
+				FF69FEF72A5939EC00DAFE55 /* OnboardingView4.swift in Sources */,
+				FF69FF2C2A59408F00DAFE55 /* UserViewModel.swift in Sources */,
+				FF69FF282A59404700DAFE55 /* VideoViewModel.swift in Sources */,
+				FF69FF052A593BD400DAFE55 /* VideoCompressCongratsView.swift in Sources */,
+				FF69FEF22A59396900DAFE55 /* OnboardingView2.swift in Sources */,
+				FF69FF1B2A593F2B00DAFE55 /* FileManager.swift in Sources */,
+				FF69FF212A593FB300DAFE55 /*  Extensions.swift in Sources */,
+				FF69FEFA2A593A2900DAFE55 /* PhotoView.swift in Sources */,
+				FF69FF0A2A593C5500DAFE55 /* DuplicateContacts.swift in Sources */,
+				FF69FF1F2A593F8C00DAFE55 /* Constants.swift in Sources */,
+				FF69FF102A593D4400DAFE55 /* StorageinfoView.swift in Sources */,
+				FF69FF0E2A593D1000DAFE55 /* SettingView.swift in Sources */,
+				FF69FF122A593D8500DAFE55 /* UserView.swift in Sources */,
+				FF14B5A42A59A9AB00987865 /* TermsOfUseView.swift in Sources */,
+				FF69FF012A593B5B00DAFE55 /* VideoCompressionView.swift in Sources */,
 				FFD2E4882A59387300C96CF2 /* ContentView.swift in Sources */,
+				FF69FF162A593DD200DAFE55 /* PaywallView.swift in Sources */,
+				FF69FF312A59410400DAFE55 /* Video.swift in Sources */,
+				FF69FEFF2A593B3000DAFE55 /* LargeVideoView.swift in Sources */,
+				FF69FF032A593BA300DAFE55 /* VideoCompressionResultsView.swift in Sources */,
+				FF14B5A22A599D9200987865 /* SubscriptionTermsView.swift in Sources */,
+				FF69FF2F2A5940E700DAFE55 /* PhotoModel.swift in Sources */,
+				FF69FF2A2A59406D00DAFE55 /* ContactsViewModel.swift in Sources */,
+				FF69FF1D2A593F6000DAFE55 /* AuthorizationUtitilies.swift in Sources */,
+				FFD2E4B12A5938E200C96CF2 /* OnboardingView1.swift in Sources */,
+				FF69FF0C2A593CA600DAFE55 /* SmartCleanView.swift in Sources */,
+				FF69FEF42A59399C00DAFE55 /* OnboardingView3.swift in Sources */,
+				FF69FF232A593FE200DAFE55 /* PhotoUtilities.swift in Sources */,
+				FF69FF072A593BFE00DAFE55 /* VideoQuality.swift in Sources */,
 				FFD2E4862A59387300C96CF2 /* BrushupCleanerApp.swift in Sources */,
+				FF69FF262A59402300DAFE55 /* PhotoViewModel.swift in Sources */,
+				FF69FF182A593E8E00DAFE55 /* CircularProgressView.swift in Sources */,
+				FF69FEFC2A593A8C00DAFE55 /* SimilarPhotoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +690,11 @@
 				DEVELOPMENT_TEAM = 5Z7S7M5YQM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BrushupCleaner/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "";
+				INFOPLIST_KEY_NSContactsUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -430,7 +705,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Victor-Kabike.BrushupCleaner";
+				PRODUCT_BUNDLE_IDENTIFIER = "Victor-Kabike.BrushCleaner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -449,6 +724,11 @@
 				DEVELOPMENT_TEAM = 5Z7S7M5YQM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BrushupCleaner/Info.plist;
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "";
+				INFOPLIST_KEY_NSContactsUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -459,7 +739,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Victor-Kabike.BrushupCleaner";
+				PRODUCT_BUNDLE_IDENTIFIER = "Victor-Kabike.BrushCleaner";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -583,6 +863,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FF14B5992A595B8100987865 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		FF14B59C2A59602700987865 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		FF14B5A52A59BC5800987865 /* XCRemoteSwiftPackageReference "ScrollKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielsaidi/ScrollKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+		FF69FF372A59420100DAFE55 /* XCRemoteSwiftPackageReference "FYVideoCompressor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/T2Je/FYVideoCompressor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FF14B59A2A595B8100987865 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF14B5992A595B8100987865 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
+		};
+		FF14B59D2A59602700987865 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF14B59C2A59602700987865 /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
+		};
+		FF14B5A62A59BC5800987865 /* ScrollKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF14B5A52A59BC5800987865 /* XCRemoteSwiftPackageReference "ScrollKit" */;
+			productName = ScrollKit;
+		};
+		FF69FF382A59420100DAFE55 /* FYVideoCompressor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF69FF372A59420100DAFE55 /* XCRemoteSwiftPackageReference "FYVideoCompressor" */;
+			productName = FYVideoCompressor;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FFD2E47A2A59387300C96CF2 /* Project object */;
 }
