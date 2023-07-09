@@ -16,8 +16,8 @@ struct CircularProgressView: View {
         ZStack {
             Circle()
                 .stroke(lineWidth: 20.0)
-                .opacity(0.3)
-                .foregroundColor(Color.white)
+                .opacity(0.4)
+                .foregroundColor(Color.blue)
             
             Circle()
                 .trim(from: 0.0, to: CGFloat(min(progress, 1.0)))

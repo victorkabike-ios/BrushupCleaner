@@ -17,6 +17,7 @@ struct PhotoView: View {
     @State
         private var scrollOffset: CGPoint = .zero
     @EnvironmentObject var photoViewModel: PhotoviewModel
+    @EnvironmentObject var userModel: UserViewModel
     @Environment(\.dismiss) var dismiss
     @State var totalPhoto = 0
     @State var totalLivePhoto = 0
@@ -42,6 +43,7 @@ struct PhotoView: View {
                                     .opacity(0.3)
                                     .edgesIgnoringSafeArea(.all))
                                 .environmentObject(photoViewModel)
+                                .environmentObject(userModel)
                                 .navigationBarBackButtonHidden(true)
                                 .onAppear{
                                     photoViewModel.fetchAndCategorizePhotos()
@@ -65,6 +67,7 @@ struct PhotoView: View {
                                     .opacity(0.3)
                                     .edgesIgnoringSafeArea(.all))
                                 .environmentObject(photoViewModel)
+                                .environmentObject(userModel)
                                 .navigationBarBackButtonHidden(true)
                                 .onAppear{
                                     photoViewModel.fetchAndCategorizeLivePhotos()
@@ -88,6 +91,7 @@ struct PhotoView: View {
                                     .opacity(0.3)
                                     .edgesIgnoringSafeArea(.all))
                                 .environmentObject(photoViewModel)
+                                .environmentObject(userModel)
                                 .navigationBarBackButtonHidden(true)
                                 .onAppear{
                                     photoViewModel.fetchAndCategorizeScreenshotPhotos()

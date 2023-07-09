@@ -14,8 +14,12 @@ struct StorageView: View {
     
     var body: some View {
         VStack(spacing: 10){
-            CircularProgressView(progress: usedPercentage)
-                .frame(height: 160)
+            RingAnimation(progressValue: $usedPercentage)
+                .onAppear{
+                    getStorage()
+                }
+                .frame(width: 180,height: 180)
+                
             Text("\(String(format: "%.1f", usedStorage))GB of \(String(format: "%.1f", totalStorage))GB used")
                 .font(.headline)
                 .onAppear(perform: getStorage)
@@ -26,29 +30,12 @@ struct StorageView: View {
         if let (usedCapacity, totalCapacity , usedPercentage) = getStorageInfo() {
               usedStorage = usedCapacity / 1_000_000_000
               totalStorage = totalCapacity / 1_000_000_000
-            self.usedPercentage = usedPercentage / 100.0
+            withAnimation(.linear(duration: 2)){
+                self.usedPercentage = usedPercentage / 100.0
+            }
           } else {
               print("Failed to retrieve storage info")
           }
       }
    
 }
-
-//struct StorageInfoView: View {
-//    var body: some View {
-//        VStack {
-//            if let storageInfo = getStorageInfo() {
-//                let usedGB = storageInfo.used / (1024 * 1024 * 1024)
-//                let totalGB = storageInfo.total / (1024 * 1024 * 1024)
-//
-//                Text("Storage used: \(String(format: "%.1f", usedGB))GB of \(String(format: "%.0f", totalGB))GB")
-//                    .font(.system(size: 20))
-//                    .padding()
-//            } else {
-//                Text("Failed to retrieve storage information")
-//                    .font(.system(size: 20))
-//                    .padding()
-//            }
-//        }
-//    }
-//}

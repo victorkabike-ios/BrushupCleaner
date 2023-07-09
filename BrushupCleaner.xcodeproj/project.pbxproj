@@ -13,6 +13,7 @@
 		FF14B5A22A599D9200987865 /* SubscriptionTermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF14B5A12A599D9200987865 /* SubscriptionTermsView.swift */; };
 		FF14B5A42A59A9AB00987865 /* TermsOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF14B5A32A59A9AB00987865 /* TermsOfUseView.swift */; };
 		FF14B5A72A59BC5800987865 /* ScrollKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF14B5A62A59BC5800987865 /* ScrollKit */; };
+		FF14B5A92A5AC5E300987865 /* RingAminationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF14B5A82A5AC5E300987865 /* RingAminationView.swift */; };
 		FF69FEF22A59396900DAFE55 /* OnboardingView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEF12A59396900DAFE55 /* OnboardingView2.swift */; };
 		FF69FEF42A59399C00DAFE55 /* OnboardingView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEF32A59399C00DAFE55 /* OnboardingView3.swift */; };
 		FF69FEF72A5939EC00DAFE55 /* OnboardingView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF69FEF62A5939EC00DAFE55 /* OnboardingView4.swift */; };
@@ -80,6 +81,7 @@
 		FF14B59F2A5960AF00987865 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		FF14B5A12A599D9200987865 /* SubscriptionTermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionTermsView.swift; sourceTree = "<group>"; };
 		FF14B5A32A59A9AB00987865 /* TermsOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseView.swift; sourceTree = "<group>"; };
+		FF14B5A82A5AC5E300987865 /* RingAminationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingAminationView.swift; sourceTree = "<group>"; };
 		FF69FEF12A59396900DAFE55 /* OnboardingView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView2.swift; sourceTree = "<group>"; };
 		FF69FEF32A59399C00DAFE55 /* OnboardingView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView3.swift; sourceTree = "<group>"; };
 		FF69FEF62A5939EC00DAFE55 /* OnboardingView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView4.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				FF69FEF82A593A1000DAFE55 /* Photo */,
 				FF69FEF52A5939C600DAFE55 /* Onboarding */,
 				FF69FF172A593E8E00DAFE55 /* CircularProgressView.swift */,
+				FF14B5A82A5AC5E300987865 /* RingAminationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				FF69FF0A2A593C5500DAFE55 /* DuplicateContacts.swift in Sources */,
 				FF69FF1F2A593F8C00DAFE55 /* Constants.swift in Sources */,
 				FF69FF102A593D4400DAFE55 /* StorageinfoView.swift in Sources */,
+				FF14B5A92A5AC5E300987865 /* RingAminationView.swift in Sources */,
 				FF69FF0E2A593D1000DAFE55 /* SettingView.swift in Sources */,
 				FF69FF122A593D8500DAFE55 /* UserView.swift in Sources */,
 				FF14B5A42A59A9AB00987865 /* TermsOfUseView.swift in Sources */,

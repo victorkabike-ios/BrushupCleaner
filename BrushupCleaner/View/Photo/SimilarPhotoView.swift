@@ -16,8 +16,9 @@ struct SimilarPhotoView: View {
     @State private var showCongratsView = false
     @Binding var totalPhoto:Int
     @Binding var totalSize: Double
-   
-    
+    @State var selectedTotalSize: Double = 0
+    @EnvironmentObject var  userModel: UserViewModel
+    @State var showPaywall:Bool = false
     var body: some View {
         NavigationStack{
             ZStack(alignment: .top){
@@ -88,14 +89,19 @@ struct SimilarPhotoView: View {
                 VStack {
 
                     Button(action: {
-                        let generator = UINotificationFeedbackGenerator()
-                        generator.notificationOccurred(.success)
-                        photoViewModel.deleteSelectedPhotosFromLibrary()
+                        if userModel.subscriptionActive{
+                            let generator = UINotificationFeedbackGenerator()
+                            generator.notificationOccurred(.success)
+                            photoViewModel.deleteSelectedPhotosFromLibrary()
+                        } else{
+                            showPaywall = true
+                        }
+                       
                     })  {
                         HStack {
                             Text("Delete \(photoViewModel.selectedPhotoCount) Similar Photos")
                                 .fontWeight(.semibold)
-                            Text("(\(photoViewModel.selectedPhotosSize, specifier: "%.2f") MB)")
+                            Text("(\(selectedTotalSize, specifier: "%.2f") MB)")
                                 .fontWeight(.bold)
                         }
                         .frame(width: 360, height: 75)
@@ -103,6 +109,11 @@ struct SimilarPhotoView: View {
                         .foregroundColor(.white)
                         .cornerRadius(18)
                         .animation(.easeInOut(duration: 0.5))
+                        .onChange(of: photoViewModel.selectedPhotos) { total in
+                            let totalSelectedSize = calculateTotalDataSize(photoModels: photoViewModel.selectedPhotos) { totalSize in
+                                selectedTotalSize = totalSize
+                            }
+                        }
                     }
                     .padding()
                     .disabled(photoViewModel.selectedPhotos.isEmpty)
@@ -111,12 +122,42 @@ struct SimilarPhotoView: View {
                 }
                 .frame(maxHeight: .infinity, alignment: .bottom)
             }
+            .fullScreenCover(isPresented: $showPaywall, content: {
+                PaywallView()
+            })
             .sheet(isPresented: $photoViewModel.showCongratsView) {
                 CongratsView(size: Double(photoViewModel.selectedPhotosSize) / (1024 * 1024), count: photoViewModel.selectedPhotos.count)
                    }
             
         }
     }
+    func calculateTotalDataSize(photoModels: [PhotoModel], completion: @escaping (Double) -> Void) {
+        var totalDataSize: Int = 0
+        let options = PHImageRequestOptions()
+        options.isSynchronous = true
+        options.deliveryMode = .highQualityFormat
+
+        let imageManager = PHImageManager.default()
+
+        let group = DispatchGroup() // Create a dispatch group
+
+        for photo in photoModels {
+            group.enter() // Enter the dispatch group
+
+            imageManager.requestImageData(for: photo.asset, options: options) { (data, _, _, _) in
+                if let size = data?.count {
+                    totalDataSize += size
+                }
+                group.leave() // Leave the dispatch group
+            }
+        }
+
+        group.notify(queue: .main) {
+            let totalDataSizeInMB = Double(totalDataSize) / (1024 * 1024)
+            completion(totalDataSizeInMB)
+        }
+    }
+
 }
 struct SimilarPhotoTumbnailView: View {
     let photo: PhotoModel

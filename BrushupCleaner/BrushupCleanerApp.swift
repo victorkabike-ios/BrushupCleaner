@@ -23,10 +23,11 @@ struct BrushupCleanerApp: App {
     var body: some Scene {
         WindowGroup {
                 ContentView()
-                    .background(Color("backgroundColor"))
+                .preferredColorScheme(ColorScheme(.dark))
                     .environmentObject(PhotoviewModel())
                     .environmentObject(VideoViewModel())
                     .environmentObject(ContactViewModel())
+                    .environmentObject(UserViewModel())
         }
     }
 }
