@@ -12,6 +12,8 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     let recipient = "tinotendakab@icloud.com"
     let instagramURL = URL(string: "https://instagram.com/brushcleanerapp?igshid=MmIzYWVlNDQ5Yg==")!
+    @ObservedObject var userModel = UserViewModel.shared
+    @Binding var paywallPresented: Bool
     var body: some View {
         NavigationView {
             Form {
@@ -59,7 +61,7 @@ struct SettingsView: View {
             }
             .navigationBarTitle("Settings")
             .navigationBarItems(trailing: NavigationLink {
-                PaywallView()
+                PaywallView( paywallsheet: $paywallPresented)
             } label: {
                 Label {
                     Text("Unlock Premium")

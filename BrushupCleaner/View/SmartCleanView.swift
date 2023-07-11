@@ -25,7 +25,7 @@ struct SmartCleanView: View {
     @State var totalLivePhoto = 0
     @State var screenshotPhoto = 0
     @Environment(\.dismiss) var dismiss
-    @State var paywallPresented = false
+    @Binding var paywallPresented:Bool
     
     var body: some View {
         NavigationView{
@@ -86,7 +86,7 @@ struct SmartCleanView: View {
                             LazyVStack{
                                 ScrollView{
                                     NavigationLink {
-                                        SimilarPhotoView(photos: photoViewModel.photoCategories, totalPhoto: $totalPhoto, totalSize: $totalPhotoSize)
+                                        SimilarPhotoView(headerHeight: 120, photos: photoViewModel.photoCategories, totalPhoto: $totalPhoto, totalSize: $totalPhotoSize, showPaywall: $paywallPresented)
                                             .environmentObject(photoViewModel)
                                             .navigationBarBackButtonHidden(true)
                                             .background(Color("backgroundColor")
@@ -134,7 +134,7 @@ struct SmartCleanView: View {
                                         
                                     }
                                     NavigationLink {
-                                        SimilarPhotoView(photos: photoViewModel.livePhotoCategories, totalPhoto: $totalLivePhoto, totalSize: $totalLivePhotoSize)
+                                        SimilarPhotoView(headerHeight: 120, photos: photoViewModel.livePhotoCategories, totalPhoto: $totalLivePhoto, totalSize: $totalLivePhotoSize, showPaywall: $paywallPresented)
                                             .environmentObject(photoViewModel)
                                             .navigationBarBackButtonHidden(true)
                                             .background(Color("backgroundColor")
@@ -181,7 +181,7 @@ struct SmartCleanView: View {
                                         }
                                     }
                                     NavigationLink {
-                                        SimilarPhotoView(photos: photoViewModel.ScreenshotCategories, totalPhoto: $screenshotPhoto, totalSize: $screenshotPhotoSize)
+                                        SimilarPhotoView(headerHeight: 120, photos: photoViewModel.ScreenshotCategories, totalPhoto: $screenshotPhoto, totalSize: $screenshotPhotoSize, showPaywall: $paywallPresented)
                                             .environmentObject(photoViewModel)
                                             .navigationBarBackButtonHidden(true)
                                             .background(Color("backgroundColor")

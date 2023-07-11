@@ -25,6 +25,7 @@ struct ContentView: View {
     @State private var duplicatePhotos: [PHAsset] = []
     @State private var showingSimilarPhotoView = false
     @State private var showingSimilarVideoView = false
+    @State  var showPaywall: Bool = true
     
     @State private var showingDuplicateContactsView = false
     @State private var showSmartview = false
@@ -52,7 +53,12 @@ struct ContentView: View {
                                             HStack(spacing: 20){
                                                 Spacer()
                                                 NavigationLink {
-                                                    PaywallView().navigationBarHidden(true)
+                                                    if userModel.subscriptionActive{
+                                                        PremiumCongratView(paywallsheet: $showPaywall)
+                                                    }else{
+                                                        PaywallView( paywallsheet: $showPaywall).navigationBarHidden(true)
+                                                    }
+                                                        
                                                 } label: {
                                                     HStack {
                                                         Image(systemName: "crown.fill")
@@ -64,7 +70,7 @@ struct ContentView: View {
                                                     .padding(8)
                                                 }
                                                 NavigationLink {
-                                                    SettingsView()
+                                                    SettingsView(paywallPresented: $showPaywall)
                                                 } label: {
                                                     Image(systemName: "gearshape.fill")
                                                         .font(.title2)
@@ -100,7 +106,7 @@ struct ContentView: View {
                                         
                                         
                                         NavigationLink {
-                                            PhotoView(headerHeight: 100)
+                                            PhotoView(headerHeight: 100, showPaywall: $showPaywall)
                                                 .environmentObject(photoViewModel)
                                                 .environmentObject(userModel)
                                                 .navigationBarBackButtonHidden(true)
@@ -141,8 +147,9 @@ struct ContentView: View {
                             }
                         }
                     }
+                  
                     .fullScreenCover(isPresented: $showSmartview) {
-                        SmartCleanView()
+                        SmartCleanView(paywallPresented: $showPaywall)
                             .environmentObject(photoViewModel)
                             .environmentObject(videoViewModel)
                             .background(
@@ -155,8 +162,13 @@ struct ContentView: View {
                                 photoViewModel.fetchAndCategorizeScreenshotPhotos()
                                 videoViewModel.fetchLargeSizeVideos()
                                 contactsViewModel.fetchContacts()
+                               
                             }
                     }
+                    .fullScreenCover(isPresented: $showPaywall, content: {
+                            PaywallView(paywallsheet: $showPaywall)
+                                .environmentObject(userModel)
+                    })
                     
                 } else {
                     OnboardingView1()

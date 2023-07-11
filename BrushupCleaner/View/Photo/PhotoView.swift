@@ -25,6 +25,7 @@ struct PhotoView: View {
     @State var totalPhotoSize: Double = 0
     @State var totalLivePhotoSize: Double = 0
     @State var screenshotPhotoSize: Double = 0
+    @Binding  var showPaywall: Bool
     var body: some View {
         NavigationStack {
             ZStack(alignment: .top){
@@ -38,7 +39,7 @@ struct PhotoView: View {
                 ) {
                     LazyVStack{
                         NavigationLink {
-                            SimilarPhotoView(photos: photoViewModel.photoCategories, totalPhoto: $totalPhoto, totalSize: $totalPhotoSize)
+                            SimilarPhotoView(headerHeight: 120, photos: photoViewModel.photoCategories, totalPhoto: $totalPhoto, totalSize: $totalPhotoSize, showPaywall: $showPaywall)
                                 .background(Color("backgroundColor")
                                     .opacity(0.3)
                                     .edgesIgnoringSafeArea(.all))
@@ -62,7 +63,7 @@ struct PhotoView: View {
                             }
                         }
                         NavigationLink {
-                            SimilarPhotoView(photos: photoViewModel.livePhotoCategories, totalPhoto: $totalLivePhoto, totalSize: $totalLivePhotoSize)
+                            SimilarPhotoView(headerHeight: 120, photos: photoViewModel.livePhotoCategories, totalPhoto: $totalLivePhoto, totalSize: $totalLivePhotoSize, showPaywall: $showPaywall)
                                 .background(Color("backgroundColor")
                                     .opacity(0.3)
                                     .edgesIgnoringSafeArea(.all))
@@ -86,7 +87,7 @@ struct PhotoView: View {
                             }
                         }
                         NavigationLink {
-                            SimilarPhotoView(photos: photoViewModel.ScreenshotCategories, totalPhoto: $screenshotPhoto, totalSize: $screenshotPhotoSize)
+                            SimilarPhotoView(headerHeight: 120, photos: photoViewModel.ScreenshotCategories, totalPhoto: $screenshotPhoto, totalSize: $screenshotPhotoSize, showPaywall: $showPaywall)
                                 .background(Color("backgroundColor")
                                     .opacity(0.3)
                                     .edgesIgnoringSafeArea(.all))
@@ -127,7 +128,7 @@ struct PhotoView: View {
             }
         }
     var headerTitle: some View {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading) {
                 HStack{
                     Image(systemName: "chevron.left")
                         .foregroundColor(.white)
@@ -146,16 +147,22 @@ struct PhotoView: View {
                          .background(Color.blue)
                          .clipShape(Circle())
                 }
-                let total = totalPhoto + totalLivePhoto + screenshotPhoto
-                let totalSize = totalPhotoSize + totalLivePhotoSize + screenshotPhotoSize
-                Text("Clean up Photos").font(.largeTitle)
-                Text("\(total) Photos . \(totalSize , specifier: "%.2f") MB of Storage to free up")
-                    .foregroundColor(.white)
-                    .fontWeight(.thin)
-                    .font(.subheadline)
+                .padding(.vertical,18)
+                .padding(.horizontal)
+                VStack(alignment: .leading){
+                    let total = totalPhoto + totalLivePhoto + screenshotPhoto
+                    let totalSize = totalPhotoSize + totalLivePhotoSize + screenshotPhotoSize
+                    Text("Clean up Photos").font(.largeTitle)
+                    Text("\(total) Photos . \(totalSize , specifier: "%.2f") MB of Storage to free up")
+                        .foregroundColor(.white)
+                        .fontWeight(.thin)
+                        .font(.subheadline)
+                }.padding(.horizontal)
             }
-        .padding(20)
-        .opacity(headerVisibleRatio)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color("backgroundColor"))
+            .edgesIgnoringSafeArea(.all)
+            .opacity(headerVisibleRatio)
        }
     func handleScrollOffset(_ offset: CGPoint, headerVisibleRatio: CGFloat) {
             self.scrollOffset = offset
@@ -246,7 +253,7 @@ struct PhotoCellView: View {
     }
 }
 
-private extension View {
+ extension View {
     
     func previewHeaderContent() -> some View {
         self.foregroundColor(.white)

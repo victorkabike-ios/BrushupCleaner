@@ -8,8 +8,56 @@
 import SwiftUI
 import Photos
 import ConfettiSwiftUI
+import ScrollKit
 
 struct SimilarPhotoView: View {
+    let headerHeight: CGFloat
+    @State
+       private var headerVisibleRatio: CGFloat = 1
+       
+    @State
+        private var scrollOffset: CGPoint = .zero
+    func header() -> some View {
+            ZStack(alignment: .bottomLeading) {
+                ScrollViewHeaderGradient()
+                headerTitle.previewHeaderContent()
+            }
+        }
+    var headerTitle: some View {
+        VStack{
+            HStack{
+                VStack(alignment: .leading, spacing: 5) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.white)
+                        .fontWeight(.bold)
+                        .font(.subheadline)
+                        .padding(8)
+                        .background(Color("groupBackgroundColor"))
+                        .clipShape(RoundedRectangle(cornerRadius: 13))
+                        .onTapGesture {
+                            dismissAction()
+                        }
+                    Text("Similar Photos").font(.title)
+                    Text("\(totalPhoto) Photos . \(totalSize , specifier: "%.2f") MB of Storage to free up")
+                        .foregroundColor(.white)
+                        .fontWeight(.thin)
+                        .font(.subheadline)
+                }
+                .padding(.top, 40)
+                .padding(.horizontal)
+                .padding(.vertical)
+                Spacer()
+            }
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color("backgroundColor"))
+        .edgesIgnoringSafeArea(.all)
+        .opacity(headerVisibleRatio)
+       }
+    func handleScrollOffset(_ offset: CGPoint, headerVisibleRatio: CGFloat) {
+            self.scrollOffset = offset
+            self.headerVisibleRatio = headerVisibleRatio
+        }
     @EnvironmentObject var photoViewModel: PhotoviewModel
     @Environment(\.dismiss) var dismissAction
     var photos: [[PhotoModel]]
@@ -17,114 +65,99 @@ struct SimilarPhotoView: View {
     @Binding var totalPhoto:Int
     @Binding var totalSize: Double
     @State var selectedTotalSize: Double = 0
-    @EnvironmentObject var  userModel: UserViewModel
-    @State var showPaywall:Bool = false
+    @ObservedObject var  userModel =  UserViewModel.shared
+    @Binding var showPaywall: Bool
     var body: some View {
         NavigationStack{
             ZStack(alignment: .top){
                 Color("backgroundColor")
                     .opacity(0.6)
                     .edgesIgnoringSafeArea(.all)
-                HStack{
-                    VStack(alignment: .leading, spacing: 5) {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .font(.subheadline)
-                            .padding(8)
-                            .background(Color("groupBackgroundColor"))
-                            .clipShape(RoundedRectangle(cornerRadius: 13))
-                            .onTapGesture {
-                                dismissAction()
-                            }
-                        Text("Similar Photos").font(.title)
-                        Text("\(totalPhoto) Photos . \(totalSize , specifier: "%.2f") MB of Storage to free up")
-                            .foregroundColor(.white)
-                            .fontWeight(.thin)
-                            .font(.subheadline)
-                    }
-                    .padding(.top, 40)
-                    .padding(.horizontal)
-                    .padding(.vertical)
-                    Spacer()
-                }
-                .frame(maxWidth: .infinity)
-                .background(Color("backgroundColor"))
-                .edgesIgnoringSafeArea(.all)
-                .zIndex(1)
-                ScrollView {
+                ScrollViewWithStickyHeader(
+                            header: header,
+                            headerHeight: 120,
+                            onScroll: handleScrollOffset(_:headerVisibleRatio:)
+                ) {
                     LazyVStack{
-                        ForEach(photos, id: \.self) { category in
-                            Section {
-                                ScrollView(.horizontal) {
-                                    LazyHStack {
-                                        ForEach(category, id: \.id) { photo in
-                                            SimilarPhotoTumbnailView(photo: photo, photoViewModel: photoViewModel)
+                                ScrollView {
+                                    LazyVStack{
+                                        ForEach(photos, id: \.self) { category in
+                                            Section {
+                                                ScrollView(.horizontal) {
+                                                    LazyHStack {
+                                                        ForEach(category, id: \.id) { photo in
+                                                            SimilarPhotoTumbnailView(photo: photo, photoViewModel: photoViewModel)
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                            } header:{
+                                                HStack{
+                                                    Text("Similar")
+                                                        .font(.headline)
+                                                        .fontWeight(.semibold)
+                                                        .foregroundColor(Color.white)
+                                                    Spacer()
+                                                    // Add a "Select All" button to select all photos in the category that are not the best
+                                                    Button(action: {
+                                                        let nonBestPhotos = category.filter { !photoViewModel.bestPhotos.contains($0) }
+                                                        photoViewModel.selectedPhotos.append(contentsOf: nonBestPhotos)
+                                                    }) {
+                                                        Text("Select All")
+                                                            .font(.subheadline)
+                                                            .fontWeight(.semibold)
+                                                    }
+                                                }.padding(.trailing)
+                                            }
                                         }
-
-                                    }
+                                    }.padding(.leading)
                                 }
-                            } header:{
-                                HStack{
-                                    Text("Similar")
-                                        .font(.headline)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(Color.white)
-                                    Spacer()
-                                    // Add a "Select All" button to select all photos in the category that are not the best
-                                    Button(action: {
-                                        let nonBestPhotos = category.filter { !photoViewModel.bestPhotos.contains($0) }
-                                        photoViewModel.selectedPhotos.append(contentsOf: nonBestPhotos)
-                                    }) {
-                                        Text("Select All")
-                                            .font(.subheadline)
-                                            .fontWeight(.semibold)
-                                    }
-                                }.padding(.trailing)
-                            }
-                        }
-                    }.padding(.leading)
+                                
+                    }.padding(.top)
                 }
-                
-                VStack {
-
-                    Button(action: {
-                        if userModel.subscriptionActive{
-                            let generator = UINotificationFeedbackGenerator()
-                            generator.notificationOccurred(.success)
-                            photoViewModel.deleteSelectedPhotosFromLibrary()
-                        } else{
-                            showPaywall = true
-                        }
-                       
-                    })  {
-                        HStack {
-                            Text("Delete \(photoViewModel.selectedPhotoCount) Similar Photos")
-                                .fontWeight(.semibold)
-                            Text("(\(selectedTotalSize, specifier: "%.2f") MB)")
-                                .fontWeight(.bold)
-                        }
-                        .frame(width: 360, height: 75)
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(18)
-                        .animation(.easeInOut(duration: 0.5))
-                        .onChange(of: photoViewModel.selectedPhotos) { total in
-                            let totalSelectedSize = calculateTotalDataSize(photoModels: photoViewModel.selectedPhotos) { totalSize in
-                                selectedTotalSize = totalSize
-                            }
-                        }
-                    }
-                    .padding()
-                    .disabled(photoViewModel.selectedPhotos.isEmpty)
-                   
-
-                }
-                .frame(maxHeight: .infinity, alignment: .bottom)
             }
-            .fullScreenCover(isPresented: $showPaywall, content: {
-                PaywallView()
+            .toolbar(content: {
+                ToolbarItem(placement: .bottomBar){
+                    VStack {
+                        
+                        Button(action: {
+                            if userModel.subscriptionActive{
+                                let generator = UINotificationFeedbackGenerator()
+                                generator.notificationOccurred(.success)
+                                photoViewModel.deleteSelectedPhotosFromLibrary()
+                            } else{
+                                showPaywall = true
+                            }
+                            
+                        })  {
+                            HStack {
+                                Text("Delete \(photoViewModel.selectedPhotoCount) Similar Photos")
+                                    .fontWeight(.semibold)
+                                Text("(\(selectedTotalSize, specifier: "%.2f") MB)")
+                                    .fontWeight(.bold)
+                            }
+                            .frame(width: 360, height: 75)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(18)
+                            .animation(.easeInOut(duration: 0.5))
+                            .onChange(of: photoViewModel.selectedPhotos) { total in
+                                let totalSelectedSize = calculateTotalDataSize(photoModels: photoViewModel.selectedPhotos) { totalSize in
+                                    selectedTotalSize = totalSize
+                                }
+                            }
+                        }
+                        .padding()
+                        .disabled(photoViewModel.selectedPhotos.isEmpty)
+                        
+                        
+                    }
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                }
             })
+            .toolbarBackground(.hidden)
+            .statusBarHidden(scrollOffset.y > -3)
+            .toolbarColorScheme(.dark, for: .navigationBar)
             .sheet(isPresented: $photoViewModel.showCongratsView) {
                 CongratsView(size: Double(photoViewModel.selectedPhotosSize) / (1024 * 1024), count: photoViewModel.selectedPhotos.count)
                    }

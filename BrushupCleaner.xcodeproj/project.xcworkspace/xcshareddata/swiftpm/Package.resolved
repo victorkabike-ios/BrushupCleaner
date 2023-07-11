@@ -1,0 +1,41 @@
+{
+  "pins" : [
+    {
+      "identity" : "confettiswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/simibac/ConfettiSwiftUI.git",
+      "state" : {
+        "revision" : "8d3a15d0aa2991e0761749b767ef8d89bca6275a",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "fyvideocompressor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/T2Je/FYVideoCompressor.git",
+      "state" : {
+        "revision" : "9a932d3b90291be8072d56cc34fee8f69f844ac8",
+        "version" : "0.0.9"
+      }
+    },
+    {
+      "identity" : "purchases-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RevenueCat/purchases-ios.git",
+      "state" : {
+        "revision" : "e919c0b6066d60e19663211d66edaf9a01336940",
+        "version" : "4.24.1"
+      }
+    },
+    {
+      "identity" : "scrollkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielsaidi/ScrollKit.git",
+      "state" : {
+        "revision" : "cbb941a2009f92f221c310156fd8be65845be79d",
+        "version" : "0.3.0"
+      }
+    }
+  ],
+  "version" : 2
+}
