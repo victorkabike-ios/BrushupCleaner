@@ -15,50 +15,52 @@ struct VideCompressedCongratsView: View {
     @State private var counter: Int = 0
     
     var body: some View {
-        VStack {
-            Text("🎉")
-                .font(.system(size: 100))
-                .confettiCannon(counter: $counter,rainHeight: 1000.0, radius: 500, repetitions: 3, repetitionInterval: 0.7)
-            
-            Text("Congratulations!")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding()
-            GroupBox{
-                VStack(alignment: .leading, spacing: 40){
-                     
-                    Label {
-                        if let originalSize = getFileSize(url: originalVideoURL){
-                            Text("Freed up ") + Text("\(originalSize)")
-                            .foregroundColor(.blue)
-                            + Text(" of storage space.")
-                    }
-
-                } icon: {
-                    Image(systemName: "opticaldiscdrive.fill")
-                        .foregroundColor(.white)
-                        .padding(8)
-                        .background(Color.red)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                }
+        NavigationStack{
+            VStack {
+                Text("🎉")
+                    .font(.system(size: 100))
+                    .confettiCannon(counter: $counter,rainHeight: 1000.0, radius: 500, repetitions: 3, repetitionInterval: 0.7)
                 
-                }.padding()
-        }
-            Spacer()
-            Button(action: {
-                           dismiss()
-                        }) {
-                            Text("Awesome")
-                                .font(.headline)
+                Text("Congratulations!")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding()
+                GroupBox{
+                    VStack(alignment: .leading, spacing: 40){
+                        
+                        Label {
+                            if let originalSize = getFileSize(url: originalVideoURL){
+                                Text("Freed up ") + Text("\(originalSize)")
+                                    .foregroundColor(.blue)
+                                + Text(" of storage space.")
+                            }
+                            
+                        } icon: {
+                            Image(systemName: "opticaldiscdrive.fill")
                                 .foregroundColor(.white)
-                                .frame(width: 360, height: 50)
-                                .background(Color.blue)
-                                .cornerRadius(10)
+                                .padding(8)
+                                .background(Color.red)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
                         }
                         
-        }
-        .onAppear {
-            counter = 2
+                    }.padding()
+                }
+                Spacer()
+                Button(action: {
+                    dismiss()
+                }) {
+                    Text("Awesome")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(width: 360, height: 50)
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                
+            }
+            .onAppear {
+                counter = 2
+            }
         }
     }
     func getFileSize(url: URL) -> String? {

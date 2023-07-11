@@ -22,6 +22,6 @@ struct Constants {
     /*
      The entitlement ID from the RevenueCat dashboard that is activated upon successful in-app purchase for the duration of the purchase.
      */
-    static let entitlementID = "Premium"
+    static let entitlementID = "premuim"
     
 }

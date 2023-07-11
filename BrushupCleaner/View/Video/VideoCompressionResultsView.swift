@@ -22,7 +22,7 @@ struct CompressionResultsView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack {
                 VStack {
                     VideoPlayer(player: AVPlayer(url: compressedVideoURL))

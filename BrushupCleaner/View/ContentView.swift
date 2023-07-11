@@ -29,7 +29,6 @@ struct ContentView: View {
     @State private var showingDuplicateContactsView = false
     @State private var showSmartview = false
     var body: some View {
-        NavigationStack{
             ZStack{
                 Color("backgroundColor")
                     .opacity(0.6)
@@ -37,16 +36,20 @@ struct ContentView: View {
                 if hasCompletedOnboarding {
                     // Your main app content here
                     NavigationStack{
-                        VStack(spacing: 15){
-                            if photoViewModel.isFetching{
-                                ProgressView {
-                                    Text("Loading")
-                                }
-                                .progressViewStyle(CircularProgressViewStyle())
-                            }else{
-                                LazyVStack{
-                                    VStack(spacing: 25){
-                                        HStack(spacing: 20){
+                        ZStack{
+                            Color("backgroundColor")
+                                .opacity(0.6)
+                                .edgesIgnoringSafeArea(.all)
+                            VStack(spacing: 15){
+                                if photoViewModel.isFetching{
+                                    ProgressView {
+                                        Text("Loading")
+                                    }
+                                    .progressViewStyle(CircularProgressViewStyle())
+                                }else{
+                                    LazyVStack{
+                                        VStack(spacing: 25){
+                                            HStack(spacing: 20){
                                                 Spacer()
                                                 NavigationLink {
                                                     PaywallView().navigationBarHidden(true)
@@ -68,7 +71,7 @@ struct ContentView: View {
                                                         .foregroundColor(Color.white)
                                                 }
                                                 
-                                        }.padding(.bottom,20)
+                                            }.padding(.bottom,20)
                                             Section{
                                                 VStack{
                                                     VStack{
@@ -93,40 +96,41 @@ struct ContentView: View {
                                                 
                                                 
                                             }
-                                    }.padding(.horizontal)
-                                    
-                                    
-                                    NavigationLink {
-                                        PhotoView(headerHeight: 100)
-                                            .environmentObject(photoViewModel)
-                                            .environmentObject(userModel)
-                                            .navigationBarBackButtonHidden(true)
-                                            .onAppear{
-                                                photoViewModel.fetchAndCategorizeLivePhotos()
-                                                photoViewModel.fetchAndCategorizePhotos()
-                                                photoViewModel.fetchAndCategorizeScreenshotPhotos()
-                                            }
-                                    } label: {
-                                        GroupBox{
-                                            ContentSectionView(icon: "photo.on.rectangle.angled", iconBackgroundColor: Color.green, title: "Photos")
-                                        }.groupBoxStyle(CustomGroupBoxStyle(color: Color("backgroundColor").opacity(0.6)))
-                                    }
-                                    
-                                    
-                                    NavigationLink {
-                                        VideoView().navigationBarBackButtonHidden(true)
-                                    } label: {
-                                        GroupBox{
-                                            ContentSectionView(icon: "video.fill", iconBackgroundColor: Color.red, title: "Videos")
-                                        }.groupBoxStyle(CustomGroupBoxStyle(color: Color("backgroundColor").opacity(0.6)))
-                                    }
-                                    NavigationLink {
-                                        DuplicateContactsView().navigationBarBackButtonHidden(true)
-                                    } label: {
-                                        GroupBox{
-                                            let similarContactsCount = contactsViewModel.duplicateContacts.reduce(0) { $0 + $1.value.count }
-                                            ContentSectionView(icon: "person.fill", iconBackgroundColor: Color.purple, title: "Contacts")
-                                        }.groupBoxStyle(CustomGroupBoxStyle(color: Color("backgroundColor").opacity(0.6)))
+                                        }.padding(.horizontal)
+                                        
+                                        
+                                        NavigationLink {
+                                            PhotoView(headerHeight: 100)
+                                                .environmentObject(photoViewModel)
+                                                .environmentObject(userModel)
+                                                .navigationBarBackButtonHidden(true)
+                                                .onAppear{
+                                                    photoViewModel.fetchAndCategorizeLivePhotos()
+                                                    photoViewModel.fetchAndCategorizePhotos()
+                                                    photoViewModel.fetchAndCategorizeScreenshotPhotos()
+                                                }
+                                        } label: {
+                                            GroupBox{
+                                                ContentSectionView(icon: "photo.on.rectangle.angled", iconBackgroundColor: Color.green, title: "Photos")
+                                            }.groupBoxStyle(CustomGroupBoxStyle(color: Color("backgroundColor").opacity(0.6)))
+                                        }
+                                        
+                                        
+                                        NavigationLink {
+                                            VideoView().navigationBarBackButtonHidden(true)
+                                        } label: {
+                                            GroupBox{
+                                                ContentSectionView(icon: "video.fill", iconBackgroundColor: Color.red, title: "Videos")
+                                            }.groupBoxStyle(CustomGroupBoxStyle(color: Color("backgroundColor").opacity(0.6)))
+                                        }
+                                        NavigationLink {
+                                            DuplicateContactsView().navigationBarBackButtonHidden(true)
+                                        } label: {
+                                            GroupBox{
+                                                let similarContactsCount = contactsViewModel.duplicateContacts.reduce(0) { $0 + $1.value.count }
+                                                ContentSectionView(icon: "person.fill", iconBackgroundColor: Color.purple, title: "Contacts")
+                                            }.groupBoxStyle(CustomGroupBoxStyle(color: Color("backgroundColor").opacity(0.6)))
+                                        }
                                     }
                                 }
                             }
@@ -134,9 +138,6 @@ struct ContentView: View {
                         .onAppear{
                             if !(photoPermissionGranted && contactPermissionGranted && calendarPermissionGranted) {
                                 requestPermissions()
-                            }else{
-                                videoViewModel.fetchLargeSizeVideos()
-                                contactsViewModel.fetchContacts()
                             }
                         }
                     }
@@ -161,7 +162,6 @@ struct ContentView: View {
                     OnboardingView1()
                 }
             }
-        }
     }
     func requestPermissions() {
             AuthorizationUtilities.requestPhotoPermission { granted in

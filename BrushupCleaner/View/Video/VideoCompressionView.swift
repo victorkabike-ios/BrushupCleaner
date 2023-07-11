@@ -17,7 +17,7 @@ struct VideoCompressionView: View {
     @State private var showResults = false
     @Environment(\.dismiss) var dismiss
     var body: some View {
-        NavigationView{
+        NavigationStack{
             ZStack{
                 Color("backgroundColor").edgesIgnoringSafeArea(.all)
                 VStack {

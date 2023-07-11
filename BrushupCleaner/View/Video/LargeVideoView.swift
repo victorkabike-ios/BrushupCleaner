@@ -14,7 +14,7 @@ struct VideoView: View {
     @State private var selectedVideo: Video?
     @Environment(\.dismiss) var dismiss
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack{
                 Color("backgroundColor").edgesIgnoringSafeArea(.all)
                 ScrollView {

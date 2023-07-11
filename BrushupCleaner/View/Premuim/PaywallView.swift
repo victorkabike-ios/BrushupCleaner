@@ -24,7 +24,7 @@ struct PaywallView: View {
     
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color("backgroundColor")
                     .opacity(0.6)
@@ -32,7 +32,29 @@ struct PaywallView: View {
                 if userViewModel.subscriptionActive {
                     PremiumCongratView(showCongratsAlert: $showCongratsAlert)
                 }else{
-                    LazyVStack(alignment: .leading, spacing: 25){
+                    LazyVStack(alignment: .center, spacing: 25){
+                        HStack{
+                            Button(action: {dismiss()}) {
+                                Image(systemName: "xmark")
+                                    .foregroundColor(.white)
+                                    .font(.headline)
+                                    .padding(6)
+                                    .background(Color.white.opacity(0.1))
+                                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                                  
+                            }
+                            Spacer()
+                            Button(action: {
+                                Task {
+                                    try? await Purchases.shared.restorePurchases()
+                                }
+                            }) {
+                                Text("Restore Purchase")
+                                    .foregroundColor(.secondary)
+                                    .font(.subheadline)
+                                    
+                            }
+                        }
                         Section {
                             VStack(alignment: .leading, spacing: 15) {
                                 FeatureRow(imageName: "photo.fill", title: "Unlimited Photo Cleaning")
@@ -71,6 +93,7 @@ struct PaywallView: View {
                                             .stroke(selectedOffer == package ? Color.blue : Color.gray.opacity(0.2), lineWidth: 2)
                                     )
                                 }
+                                Spacer()
                                     Button {
                                         isPurchasing = true
                                         Purchases.shared.purchase(package: selectedOffer!) { (transaction, customerInfo, error, userCancelled) in
@@ -138,6 +161,7 @@ struct PaywallView: View {
                         
                     }
                     .padding(.horizontal)
+                    .padding(.top, 20)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .edgesIgnoringSafeArea(.bottom)
                 }
@@ -149,27 +173,15 @@ struct PaywallView: View {
             .sheet(isPresented: $showTermsOfUse, content: {
                TermsOfUseView()
             })
-            .toolbar(content: {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {dismiss()}) {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.secondary)
-                          
-                    }
-                   
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        Task {
-                            try? await Purchases.shared.restorePurchases()
-                        }
-                    }) {
-                        Text("Restore Purchase")
-                            .foregroundColor(.secondary)
-                            
-                    }
-                }
-            })
+//            .toolbar(content: {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//
+//
+//                }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//
+//                }
+//            })
             .onAppear{
                 Purchases.shared.getOfferings { (offerings, error) in
                     if let offer = offerings?.current, error == nil {
@@ -201,9 +213,9 @@ struct PackageCellView: View {
         HStack {
             VStack(spacing: 10){
                 HStack {
-                    Text("\(package.storeProduct.localizedPriceString) per \(package.storeProduct.subscriptionPeriod!.durationTitle)")
+                    Text("\(package.storeProduct.localizedPriceString)")
                         .foregroundColor(.white)
-                        .font(.subheadline)
+                        .font(.headline)
                         .bold()
                     
                     Spacer()
@@ -219,10 +231,13 @@ struct PackageCellView: View {
             
             Spacer()
             
-            Text(package.recommended ? "Popular": "")
-                .foregroundColor(.green)
-                .font(.caption2)
+            Text("-70% OFF")
+                .foregroundColor(.white)
+                .font(.caption)
                 .bold()
+                .padding(8)
+                .background(LinearGradient(colors: [.blue, .purple], startPoint: .leading, endPoint: .trailing))
+                .clipShape(Capsule())
         }
         
     }

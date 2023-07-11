@@ -12,33 +12,38 @@ struct OnboardingView2: View {
     @State private var isTextVisible = false
 
     var body: some View {
-        NavigationView{
-            VStack {
-                Spacer()
-                Image("similarphotos")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                Spacer()
-                VStack(alignment: .leading) {
-                    FeatureView(title: "Remove Similar Media", description: "Say goodbye to cluttered galleries. Brush identifies and helps you remove similar photos and videos, freeing up your storage.")
+        NavigationStack{
+            ZStack{
+                Color("backgroundColor")
+                    .opacity(0.6)
+                    .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Spacer()
+                    Image("similarphotos")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    Spacer()
+                    VStack(alignment: .leading) {
+                        FeatureView(title: "Remove Similar Media", description: "Say goodbye to cluttered galleries. Brush identifies and helps you remove similar photos and videos, freeing up your storage.")
+                    }
+                    .padding(.horizontal, 30)
+                    Spacer()
+                    NavigationLink(destination: OnboardingView3().navigationBarBackButtonHidden(true)) {
+                        Text("Continue")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .frame(width: 380, height: 60)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                    .padding(.bottom, 50)
                 }
-                .padding(.horizontal, 30)
-                Spacer()
-                NavigationLink(destination: OnboardingView3().navigationBarBackButtonHidden(true)) {
-                    Text("Continue")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .frame(width: 380, height: 60)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                .opacity(isTextVisible ? 1 : 0)
+                .animation(.easeIn(duration: 1.5))
+                .onAppear {
+                    self.isTextVisible = true
                 }
-                .padding(.bottom, 50)
-            }
-            .opacity(isTextVisible ? 1 : 0)
-            .animation(.easeIn(duration: 1.5))
-            .onAppear {
-                self.isTextVisible = true
             }
         }
     }

@@ -12,7 +12,7 @@ struct DuplicateContactsView: View {
     @ObservedObject var viewModel = ContactViewModel()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List {
                 ForEach(Array(viewModel.duplicateContacts.keys), id: \.self) { key in
                     Section(header: Text(key)) {

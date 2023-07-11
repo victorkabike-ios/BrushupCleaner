@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 struct RingAnimation: View {
-    @Binding var progressValue:Double
-    @State private var progress:Double = 0
+//    @Binding var progressValue:Double
+    @Binding  var progress:Double
     
     let animation = Animation
         .easeOut(duration: 3)
@@ -25,9 +25,9 @@ struct RingAnimation: View {
                 .bold()
                 .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
         }.animation(animation, value: progress)
-            .onAppear {
-                progress = progressValue
-            }
+//            .onAppear {
+//                progress = progressValue
+//            }
         
     }
     
